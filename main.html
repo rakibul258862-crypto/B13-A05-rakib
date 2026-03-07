@@ -55,15 +55,15 @@
 
     <!-- filter all/open/close btn section  -->
      <section>
-      <div class="mt-8 mb-5 bg-white h-[80px] px-7 w-10/12 flex gap-3 mx-auto py-6 rounded-lg">
-        <button class="btn btn-soft btn-primary w-[100px] text-gray-600  py-5">All</button>
-        <button class="btn btn-soft btn-primary w-[100px] text-gray-600 py-5">Open</button>
-        <button class="btn btn-soft btn-primary w-[100px] text-gray-600 py-5">Close</button>
+      <div class="m-5 bg-white p-4 w-11/12 mx-auto flex flex-col md:flex-row gap-2 items-center rounded-lg">
+        <button class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">All</button>
+        <button class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">Open</button>
+        <button class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">Close</button>
       </div>
      </section>
       <!-- Issued tracker count -->
      <section>
-      <div class="mt-8 mb-5 bg-white h-[80px] px-7 w-10/12 flex  mx-auto py-6 rounded-lg justify-between items-center">
+      <div class="m-5 bg-white p-4 w-11/12 mx-auto flex flex-col md:flex-row justify-between items-center rounded-lg">
         <!-- left side section -->
         <div class="flex gap-3 justify-center items-center">
           <div class="bg-gray-300 rounded-full p-1">
@@ -80,7 +80,22 @@
           <span><i class="fa-solid fa-circle text-[#A855F7]"></i>Close</span>
       </div>
       </div>
-     </section>
+     </section >
+
+     <!-- dynamic card section  -->
+    <section id="issues-container" class='card bg-base-100 mx-auto shadow-sm grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 space-y-1 p-10'>
+      <!-- <div class="card bg-base-100 w-auto shadow-md"> -->
+
+    </section>
     
+      <!-- dynamic js -->
+      <section class="bg-[#fbfbfb]">
+
+
+         
+      </section>
+
+    <!-- js -->
+     <script src="./mainscript.js"></script>
 </body>
 </html>
