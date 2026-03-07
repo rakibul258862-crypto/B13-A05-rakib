@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Issues Tracker</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
 
     <!-- tailwind and daisy ui cdn -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -12,28 +13,46 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!-- link css -->
       <link rel="stylesheet" href="style.css">
+      <style>
+        *{ bg-slate-300
+        }
+      </style>
 </head>
-<body>
-    <section class="login-section bg-base-200 text-center items-center">
-        <div class="top section">
-            <div>
+<body class="min-h-screen max-w-md	 mx-auto text-center items-center py-8">
+    <section class="login-section bg-white text-center mt-2 shrink-0 shadow-xl  mx-auto py-4  h-auto w-[450px]  ">
+        <div class="top section mb-2 ">
+            <div class="logo w-[200px] mx-auto pt-5 flex items-center justify-center mb-5">
                 <img src="./assets/github-logo.png" alt="">
             </div>
+                <h2 class="font-bold text-2xl">GitHub Issues Tracker</h2>
         </div>
-        <div class="midualsection">
-            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-        <legend class="fieldset-legend">Login</legend>
-
-        <label class="label">Email</label>
-        <input type="email" class="input" placeholder="Email" />
-
-        <label class="label">Password</label>
-        <input type="password" class="input" placeholder="Password" />
-
-        <button class="btn btn-neutral mt-4">Login</button>
+        <div class="midualsection  mx-auto">
+      <div class="card bg-white w-full max-w-sm shrink-0 mx-auto">
+      <div class="card-body">
+        <fieldset class="fieldset">
+          <label class="label text-neutral font-bold">Username</label>
+          <input type="text" class="input" placeholder="Enter Your Username " />
+        <div class="text-start text-primary">
+            <a class="link link-hover">Default: admin</a>
+        </div>
+          
+          <label class="label text-neutral font-bold">Password</label>
+          <input type="password" class="input" maxlength="8" placeholder="Enter Password" />
+          <div class="text-start text-primary">
+            <a class="link link-hover">Default: admin123</a></div>
+          <button class="btn btn-primary mt-2">Login</button>
         </fieldset>
+      </div>
+    </div>
         </div>
-        <div class="lowersection"></div>
+         <div class="divider">OR</div>
+        <div class="lowersection">
+            <h3 class="text-gray-500">Demo Credentials:</h3>
+            <div class="bg-base-300 mb-5 w-[400px] mx-auto py-3 rounded-md mt-3">
+                <h2><span class="font-bold">Username: </span>admin</h2>
+                <h2><span class="font-bold">Password: </span>admin123</h2>
+            </div>
+        </div>
 
     </section>
     
