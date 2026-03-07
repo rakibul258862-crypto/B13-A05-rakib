@@ -18,5 +18,4 @@ document.getElementById('singInBtn').addEventListener('click',() => {
         alert('sing in failed');
     }
 
-
 })
