@@ -1,8 +1,59 @@
+// badge ar dynamic ar jonno color and icon funtion created
+const createdLabels = (arr)=>{
+    return labelsElement = arr.map( (el)=> {
+        
+        let  labelsBages = "";
+        let labelsIcon = "";
+        if(el =="bug"){
+           labelsBages ="badge badge-error rounded-full";
+           labelsIcon =`<i class="fa-solid fa-bug"></i>` ;
+        }
+         else if(el =="help wanted"){
+           labelsBages ="badge badge-warning rounded-full";
+           labelsIcon =`<i class="fa-solid fa-life-ring"></i>` ;
+        }
+         else if(el =="enhancement"){
+           labelsBages ="badge badge-success rounded-full";
+           labelsIcon =`<i class="fa-solid fa-rocket"></i>` ;
+        }
+         else if(el =="good first issue"){
+           labelsBages ="badge bg-[#16A120] rounded-full";
+           labelsIcon =`<i class="fa-regular fa-star"></i>` ;
+        }
+         else if(el =="documentation"){
+           labelsBages ="badge badge-primary rounded-full";
+           labelsIcon =`<i class="fa-solid fa-file-export"></i>` ;
+        }
+        return `<div class="${labelsBages} flex items-center gap-1 whitespace-nowrap">
+        ${labelsIcon}
+        <span>${el}</span>
+        </div>
+        `;
+    }).join(" ");
+}
+
+// showLoadingSpinner function call
+function showLoadingSpinner(){
+    loadingSpinner.classList.remove("hidden");
+    loadingSpinner.classList.add("grid");
+}
+// hiddenLoadingSpinner function call
+function hiddenLoadingSpinner(){
+    loadingSpinner.classList.add("hidden");
+    
+}
+
 // all issued fetch and json konrchi
+const loadingSpinner =document.getElementById("loading-spinner")
 const loadAllIssues =()=>{
+    // add loading spinner (step1= start) remove->hidden call and add (grid) 
+    showLoadingSpinner();
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
-    .then(data => displayAllIssues(data.data))
+    .then(data => {displayAllIssues(data.data);
+// (step2=end) loading ar por hidden class add
+   hiddenLoadingSpinner();
+});
 }
 const displayAllIssues =(issues)=>{
 // console.log(issued)
@@ -36,7 +87,7 @@ issues.forEach(issue => {
         topColorBorder = "border-t-4 border-[#A855F7]"
     };
     const card = document.createElement("div");
-    card.classList= `card bg-base-100 w-auto shadow-md ${topColorBorder}`;
+    card.classList= `card bg-base-100 -p-2 w-auto shadow-md ${topColorBorder}`;
     // priority ar color change condition 
     let priorityColor;
     if(issue.priority == "high"){
@@ -56,23 +107,15 @@ issues.forEach(issue => {
         <!--issues title and paragraph -->
     <h2 class="card-title">${issue.title} </h2>
     <p class="line-clamp-2">${issue.description}</p>
-    <div class="flex items-center gap-2">
-    <!-- BUG badge -->
-    <div class="badge badge-error flex items-center gap-1">
-    <i class="fa-solid fa-bug"></i>
-    <span>BUG</span>
+    <div class="flex items-center gap-1">
+    <div class=" flex items-center gap-[2px] whitespace-nowrap">
+    ${createdLabels(issue.labels)}
     </div>
-    <!-- HELP WANTED badge -->
-    <div class="badge badge-warning flex items-center gap-1 whitespace-nowrap">
-    <i class="fa-solid fa-life-ring"></i>
-    <span>HELP WANTED</span>
+     
     </div>
-  </div>
-    <hr>
-    <div class="display-none">
+      <div class="flex-wrap items-center justify-between gap-[4px] mt-2 text-gray-500 text-sm whitespace-nowrap">
         <p>#${issue.id} by ${issue.author}</p>
         <p>${issue.createdAt}</p>
-      </div>
       </div>
       </div>
     `;
