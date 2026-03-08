@@ -1,6 +1,7 @@
+
 // badge ar dynamic ar jonno color and icon funtion created
 const createdLabels = (arr)=>{
-    return labelsElement = arr.map( (el)=> {
+    return arr.map( (el)=> {
         
         let  labelsBages = "";
         let labelsIcon = "";
@@ -31,7 +32,6 @@ const createdLabels = (arr)=>{
         `;
     }).join(" ");
 }
-
 // showLoadingSpinner function call
 function showLoadingSpinner(){
     loadingSpinner.classList.remove("hidden");
@@ -42,18 +42,49 @@ function hiddenLoadingSpinner(){
     loadingSpinner.classList.add("hidden");
     
 }
-
 // all issued fetch and json konrchi
+let allIssues =[];
 const loadingSpinner =document.getElementById("loading-spinner")
 const loadAllIssues =()=>{
     // add loading spinner (step1= start) remove->hidden call and add (grid) 
     showLoadingSpinner();
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
-    .then(data => {displayAllIssues(data.data);
+    .then(data => {
+        allIssues = data.data;
+        displayAllIssues(allIssues);
 // (step2=end) loading ar por hidden class add
    hiddenLoadingSpinner();
+   setsActiveBtn(document.getElementById("all-btn"));
 });
+}
+// set active btn function
+function setsActiveBtn(button){
+    document.getElementById("All-btn").classList.remove("btn-active");
+    document.getElementById("Open-btn").classList.remove("btn-active");
+    document.getElementById("close-btn").classList.remove("btn-active");
+
+    button.classList.add("btn-active");
+}
+
+//  all btn display 
+function AllIssuesShow(btn){
+    displayAllIssues(allIssues);
+    setsActiveBtn(btn);
+}
+//  open btn display and active
+function openIssuesShow(btn){
+    const openIssuesBtn = allIssues.filter(issue => issue.status === "open")
+    
+    displayAllIssues(openIssuesBtn);
+    setsActiveBtn(btn);
+}
+// close btn display and active
+function closeIssuesShow(btn){
+    const closeIssuesBtn = allIssues.filter(issue => issue.status === "closed")
+    
+    displayAllIssues(closeIssuesBtn);
+    setsActiveBtn(btn);
 }
 const displayAllIssues =(issues)=>{
 // console.log(issued)
@@ -87,7 +118,7 @@ issues.forEach(issue => {
         topColorBorder = "border-t-4 border-[#A855F7]"
     };
     const card = document.createElement("div");
-    card.classList= `card bg-base-100 -p-2 w-auto shadow-md ${topColorBorder}`;
+    card.classList = `card bg-base-100 p-2 w-auto shadow-md ${topColorBorder}`;
     // priority ar color change condition 
     let priorityColor;
     if(issue.priority == "high"){
@@ -122,7 +153,5 @@ issues.forEach(issue => {
     // 3 append in container
     issuedContainer.appendChild(card);
 });
-
 }
-
 loadAllIssues();

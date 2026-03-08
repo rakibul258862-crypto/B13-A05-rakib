@@ -56,9 +56,9 @@
     <!-- filter all/open/close btn section  -->
      <section>
       <div class="m-5 bg-white p-4 w-11/12 mx-auto flex flex-col md:flex-row gap-2 items-center rounded-lg">
-        <button class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">All</button>
-        <button class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">Open</button>
-        <button class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">Close</button>
+        <button id="All-btn" onclick="AllIssuesShow(this)" class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">All</button>
+        <button id="Open-btn" onclick="openIssuesShow(this)" class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">Open</button>
+        <button id="close-btn" onclick="closeIssuesShow(this)" class="btn btn-soft btn-primary w-[80px] text-gray-600 p-5">Close</button>
       </div>
      </section>
       <!-- Issued tracker count -->
