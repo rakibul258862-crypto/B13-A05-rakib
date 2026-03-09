@@ -177,7 +177,7 @@ issues.forEach(issue => {
         document.getElementById("date-modal").innerText = issue.createdAt;
         document.getElementById("label-modal").innerHTML = createdLabels(issue.labels);
         document.getElementById("description-modal").innerText = issue.description;
-        document.getElementById("assigenee-name").innerText = issue.author;
+        document.getElementById("assignee-name").innerText = issue.author;
 
         const priori= document.getElementById("priority-modal").innerHTML = `<span 
         class="${priorityColor} rounded-full">${issue.priority}</span>`;

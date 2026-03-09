@@ -1,6 +1,6 @@
 // console.log('welcome to sing in page ')
 
-document.getElementById('singInBtn').addEventListener('click',() => {
+document.getElementById('signInBtn').addEventListener('click',() => {
     // step-1 get the  username input and value 
     const userNameInput = document.getElementById("Username-Input");
     const usernameValue =userNameInput.value;
@@ -13,7 +13,7 @@ document.getElementById('singInBtn').addEventListener('click',() => {
     // if match === false ==> alert ==>'Invalid your information' and if match === true ==> 'loading main section' 
     if(usernameValue === "admin" && passwordValue ===  'admin123'){
         alert('Sing In successful');
-        window.location.assign('/main.html');
+        window.location.assign('main.html');
     }else{
         alert('sing in failed');
     }
