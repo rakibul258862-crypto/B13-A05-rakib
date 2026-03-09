@@ -1,18 +1,9 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
-
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
-
----
 
 # Assignment-05: GitHub Issues Tracker
 
-
 ### **API Endpoints:**
 ###  **All Issues:** 
-  - https://phi-lab-server.vercel.app/api/v1/lab/issues 
-
+  - https://phi-lab-server.vercel.app/api/v1/lab/issues
 
 ###  **Single Issue:**
    - https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
@@ -23,8 +14,6 @@
 ###  **Search Issue:** https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}
 
    - Example:  https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
-
-
 ---
 
 ## 📝 Main Requirements
@@ -49,12 +38,8 @@
 
 - Below the tab, there will be an icon, the issue count, some text on the left, and an open and closed marker on the right
 
-- Responsiveness: The website should be responsive for mobile devices. It is totally up to you. 
-
-
+- Responsiveness: The website should be responsive for mobile devices. It is totally up to you.
 --- 
-
-
 ## ⚙️ Functionalities
 - In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
 
@@ -75,7 +60,6 @@
 
 ### 🚀 Challenges
 
-
 - Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
 
 - Loading spinner on data load
@@ -84,9 +68,10 @@
 
 - Implement Search Functionality and 8 meaningful github commit.  
 
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
+- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot.
+# Question Answers :: 
     - 1️⃣ What is the difference between var, let, and const?
-    Ans:
+    # Ans:
      var: Declares variables with function or global scope and allows re-declaration and updates within the same scope.
      example: var num = [1,2,3,]
      var num = [1,8,9] //re-declaration
@@ -105,20 +90,20 @@
     let x = 30; // cannot redeclare const variable
 
     - 2️⃣ What is the spread operator (...)?
-    Ans:
+    # Ans:
     spread operator is apply in Denoted by three dots ... before the array/object.
     spread operator :[...array]
     example:
     let arr =[1,2,3,4];
      arr = [...,3,4];
     - 3️⃣ What is the difference between map(), filter(), and forEach()?
-    Ans: map() :---> is return a new array.it purpose to used in a created a new array.original array is not change;
+    # Ans: map() :---> is return a new array.it purpose to used in a created a new array.original array is not change;
     filter(): is used to purpose is current condition accoding to element to use and its return a new array with the filtered elements ;
     original value is not change;
     forEach(); for each is a loop like for of loop etc and it can not return anything ;
 
     - 4️⃣ What is an arrow function?
-    Ans; array function is---> like regular function and array function is difference is user array syntex and not write function name for Example:
+    # Ans; array function is---> like regular function and array function is difference is user array syntax and not write function name for Example:
     normal function is -->
     const function Array (a,b){
      return a+b;
@@ -128,19 +113,11 @@
      return a+b;
     }
     - 5️⃣ What are template literals?
-    ans: 
+     # ans: 
     Template literals are a modern way of writing strings in JavaScript, using backtick ( ) and easily placing variables or expressions inside them.
     -- start  write the backtick ( )
     -- and in the ${variabe}
     -- userd `` backtick
----
-
-## 🛠️ Technology Stack
-
-- **HTML**
-- **CSS** (Vanilla/Tailwind/DaisyUI)
-- **JavaScript** (Vanilla)
-
 ---
 
 ## 🔑 Demo Credentials
@@ -149,8 +126,6 @@
 Username: admin
 Password: admin123
 ```
-
-
 ---
 
 ### Optional: 
