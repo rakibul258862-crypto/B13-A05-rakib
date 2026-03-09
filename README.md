@@ -86,12 +86,53 @@
 
 - Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
     - 1️⃣ What is the difference between var, let, and const?
+    Ans:
+     var: Declares variables with function or global scope and allows re-declaration and updates within the same scope.
+     example: var num = [1,2,3,]
+     var num = [1,8,9] //re-declaration
+         num = [3,2,1] // updates
+    //**console.log was called before the variable was created.
+         
+    let: Declares variables with block scope, allowing updates but not re-declaration within the same block.
+    example: 
+    let x = 10;
+    x = 20; // updating is allowed let variable
+    let x = 30; // cannot redeclare let and const variable
+    const: Declares block-scoped variables that cannot be reassigned after their initial assignment.
+    example:
+    const x = 10;
+    x = 20; // not updating  const variable
+    let x = 30; // cannot redeclare const variable
+
     - 2️⃣ What is the spread operator (...)?
+    Ans:
+    spread operator is apply in Denoted by three dots ... before the array/object.
+    spread operator :[...array]
+    example:
+    let arr =[1,2,3,4];
+     arr = [...,3,4];
     - 3️⃣ What is the difference between map(), filter(), and forEach()?
+    Ans: map() :---> is return a new array.it purpose to used in a created a new array.original array is not change;
+    filter(): is used to purpose is current condition accoding to element to use and its return a new array with the filtered elements ;
+    original value is not change;
+    forEach(); for each is a loop like for of loop etc and it can not return anything ;
+
     - 4️⃣ What is an arrow function?
+    Ans; array function is---> like regular function and array function is difference is user array syntex and not write function name for Example:
+    normal function is -->
+    const function Array (a,b){
+     return a+b;
+    }
+    and array function 
+    const array=()=>{
+     return a+b;
+    }
     - 5️⃣ What are template literals?
-
-
+    ans: 
+    Template literals are a modern way of writing strings in JavaScript, using backtick ( ) and easily placing variables or expressions inside them.
+    -- start  write the backtick ( )
+    -- and in the ${variabe}
+    -- userd `` backtick
 ---
 
 ## 🛠️ Technology Stack

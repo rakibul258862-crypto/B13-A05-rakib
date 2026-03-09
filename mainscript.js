@@ -15,11 +15,11 @@ const createdLabels = (arr)=>{
         }
          else if(el =="enhancement"){
            labelsBages ="badge badge-outline badge-success rounded-full";
-           labelsIcon =`<i class="fa-solid fa-rocket"></i>` ;
+           labelsIcon =`<i class="fa-solid fa-rocket "></i>` ;
         }
          else if(el =="good first issue"){
            labelsBages ="badge badge-outline badge-secondary rounded-full";
-           labelsIcon =`<i class="fa-regular fa-star"></i>` ;
+           labelsIcon =`<i class="fa-regular fa-star "></i>` ;
         }
          else if(el =="documentation"){
            labelsBages ="badge badge-outline badge-primary rounded-full";
@@ -130,6 +130,7 @@ issues.forEach(issue => {
         statusActive = "closed"
     }
     
+    const date = new Date(issue.createdAt).toLocaleDateString(); 
     
     const card = document.createElement("div");
     card.classList = `card bg-base-100 p-2 w-auto shadow-md ${topColorBorder}`;
@@ -164,9 +165,9 @@ issues.forEach(issue => {
     ${createdLabels(issue.labels)}
     </div>
     </div>
-      <div class="flex-wrap items-center justify-between gap-[4px] mt-2 text-gray-500 text-sm whitespace-nowrap">
+      <div class="flex items-center justify-between gap-[4px] mt-2 text-gray-500 text-sm whitespace-nowrap">
         <p>#${issue.id} by ${issue.author}</p>
-        <p>${issue.createdAt}</p>
+        <p>${date}</p>
       </div>
       </div>
     `;
@@ -174,7 +175,7 @@ issues.forEach(issue => {
         document.getElementById("title-modal").innerText = issue.title;
       const status = document.getElementById("status-modal").innerHTML = `<div  class="${openAndCloseStatus} rounded-full">${ statusActive}</div>`;
         document.getElementById("author-modal").innerText = issue.author;
-        document.getElementById("date-modal").innerText = issue.createdAt;
+        document.getElementById("date-modal").innerHTML = date;
         document.getElementById("label-modal").innerHTML = createdLabels(issue.labels);
         document.getElementById("description-modal").innerText = issue.description;
         document.getElementById("assignee-name").innerText = issue.author;
