@@ -6,23 +6,23 @@ const createdLabels = (arr)=>{
         let  labelsBages = "";
         let labelsIcon = "";
         if(el =="bug"){
-           labelsBages ="badge badge-error rounded-full";
+           labelsBages ="badge badge-outline badge-error rounded-full";
            labelsIcon =`<i class="fa-solid fa-bug"></i>` ;
         }
          else if(el =="help wanted"){
-           labelsBages ="badge badge-warning rounded-full";
+           labelsBages ="badge badge-outline badge-warning rounded-full";
            labelsIcon =`<i class="fa-solid fa-life-ring"></i>` ;
         }
          else if(el =="enhancement"){
-           labelsBages ="badge badge-success rounded-full";
+           labelsBages ="badge badge-outline badge-success rounded-full";
            labelsIcon =`<i class="fa-solid fa-rocket"></i>` ;
         }
          else if(el =="good first issue"){
-           labelsBages ="badge bg-[#16A120] rounded-full";
+           labelsBages ="badge badge-outline badge-secondary rounded-full";
            labelsIcon =`<i class="fa-regular fa-star"></i>` ;
         }
          else if(el =="documentation"){
-           labelsBages ="badge badge-primary rounded-full";
+           labelsBages ="badge badge-outline badge-primary rounded-full";
            labelsIcon =`<i class="fa-solid fa-file-export"></i>` ;
         }
         return `<div class="${labelsBages} flex items-center gap-1 whitespace-nowrap">
@@ -55,7 +55,7 @@ const loadAllIssues =()=>{
         displayAllIssues(allIssues);
 // (step2=end) loading ar por hidden class add
    hiddenLoadingSpinner();
-   setsActiveBtn(document.getElementById("all-btn"));
+   setsActiveBtn(document.getElementById("All-btn"));
 });
 }
 // set active btn function
@@ -64,7 +64,7 @@ function setsActiveBtn(button){
     document.getElementById("Open-btn").classList.remove("btn-active");
     document.getElementById("close-btn").classList.remove("btn-active");
 
-    button.classList.add("btn-active");
+    button.classList.add("btn-active")
 }
 
 //  all btn display 
@@ -88,12 +88,18 @@ function closeIssuesShow(btn){
 }
 const displayAllIssues =(issues)=>{
 // console.log(issued)
+
+//Issued tracker count 
+
+let issuedTrackerCount = document.getElementById("issues-count-input");
+issuedTrackerCount.innerHTML =issues.length;
+
 //1 get the container and emty hobe
 const issuedContainer =document.getElementById('issues-container');
 issuedContainer.innerHTML = ''; 
 //2 loop and cerated div element and add class list  
 issues.forEach(issue => {
-    // damo data api 
+    // damo  api data 
 //     "id": 1,
 // "title": "Fix navigation menu on mobile devices",
 // "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
@@ -117,17 +123,32 @@ issues.forEach(issue => {
     }else if(issue.status === "closed"){
         topColorBorder = "border-t-4 border-[#A855F7]"
     };
+    let statusActive;
+    if(issue.status === "open"){
+        statusActive = "open"
+    }else if (issue.status === "closed"){
+        statusActive = "closed"
+    }
+    
+    
     const card = document.createElement("div");
     card.classList = `card bg-base-100 p-2 w-auto shadow-md ${topColorBorder}`;
     // priority ar color change condition 
     let priorityColor;
     if(issue.priority == "high"){
-        priorityColor = "badge badge-error";
+        priorityColor = "badge badge-error rounded-full";
     }else if(issue.priority == "medium"){
-        priorityColor = "badge badge-warning";
+        priorityColor = "badge badge-warning rounded-full";
     }else if(issue.priority == "low"){
-        priorityColor ="badge badge-ghost";
-    }
+        priorityColor ="badge badge-ghost rounded-full";
+    };
+    let openAndCloseStatus;
+        if(issue.status == "open"){
+        openAndCloseStatus = "badge bg-[#00A96e] text-white rounded-full";
+        }else if(issue.status == "closed"){
+         openAndCloseStatus = "badge bg-[#A855F7] text-white rounded-full";
+        }
+    
     // card ar innhtml created
     card.innerHTML=`
          <div class="card-body">
@@ -142,7 +163,6 @@ issues.forEach(issue => {
     <div class=" flex items-center gap-[2px] whitespace-nowrap">
     ${createdLabels(issue.labels)}
     </div>
-     
     </div>
       <div class="flex-wrap items-center justify-between gap-[4px] mt-2 text-gray-500 text-sm whitespace-nowrap">
         <p>#${issue.id} by ${issue.author}</p>
@@ -150,8 +170,31 @@ issues.forEach(issue => {
       </div>
       </div>
     `;
+    card.addEventListener("click",()=>{
+        document.getElementById("title-modal").innerText = issue.title;
+      const status = document.getElementById("status-modal").innerHTML = `<div  class="${openAndCloseStatus} rounded-full">${ statusActive}</div>`;
+        document.getElementById("author-modal").innerText = issue.author;
+        document.getElementById("date-modal").innerText = issue.createdAt;
+        document.getElementById("label-modal").innerHTML = createdLabels(issue.labels);
+        document.getElementById("description-modal").innerText = issue.description;
+        document.getElementById("assigenee-name").innerText = issue.author;
+
+        const priori= document.getElementById("priority-modal").innerHTML = `<span 
+        class="${priorityColor} rounded-full">${issue.priority}</span>`;
+        // document.getElementById("priority-modal").classList.add(priorityColor);
+
+        document.getElementById("my_modal_7").checked = true;
+    })
     // 3 append in container
     issuedContainer.appendChild(card);
 });
 }
 loadAllIssues();
+document.getElementById("search-info").addEventListener("input",()=>{
+    const input =document.getElementById("search-info");
+    const searchValue = input.value.toLowerCase();
+
+    console.log(searchValue);
+    const searchFilter = allIssues.filter(issue => issue.title.toLowerCase().includes(searchValue));
+    displayAllIssues(searchFilter);
+})
